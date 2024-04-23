@@ -5,9 +5,38 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Week-4 Templating</title>
 </head>
 <body>
-    <h1>INFORMATION HTML</h1>
+    <h1>INFORMATION HTML {{ @name }} </h1>
+    <h2>{{ @car }}</h2>
+    <p>My name is {{ @name }}</p>
+    <h2>A list of fruits</h2>
+    <ul>
+        <repeat group="{{ @fruitList}}" value="{{ @fruit }}">
+            <li>{{ @fruit }}</li>
+        </repeat>
+    </ul>
+
+    <p>Imploded string of cars: {{ implode(", ", @carsList) }}</p>
+
+    <ul>
+        <repeat group="{{ @carsList}}" value="{{ @car }}">
+            <li>{{ @car }}</li>
+        </repeat>
+    </ul>
+
+    <repeat group="{{ @studentList }}" key="{{ @sid }}" value="{{ @name }}">
+        <p>{{ @sid }} - {{ @name }}</p>
+    </repeat>
+
+<!--    f3 conditionals-->
+
+    <p>The number is {{ @num }}</p>
+
+    <check if="{{ @num == 6 }}">
+        <true><p>High Five!</p></true>
+        <false><p>Too bad!</p></false>
+    </check>
 </body>
 </html>
